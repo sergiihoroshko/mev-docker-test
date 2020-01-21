@@ -1,6 +1,7 @@
 version: '2'
 services:
 
+#Selenium Node configured to run Google Chrome.
   chrome:
     image: selenium/node-chrome:3.14.0-gallium
     volumes:
@@ -10,6 +11,7 @@ services:
     environment:
       HUB_HOST: hub
 
+#The Hub receives a test to be executed along with information on which browser and 'platform' where the test should be run. The hub will use this information and delegate to a node that can service those needs.
   hub:
     image: selenium/hub:3.14.0-gallium
     ports:

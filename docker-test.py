@@ -8,4 +8,6 @@ chrome = webdriver.Remote(
 chrome.get('https://dev04.quantuvis.net/#/login')
 print(chrome.title)  # Get Quantuvis title
 
-chrome.quit()
+
+def tear_down(self):  # Method close all active browser window and end script work
+    self.driver.quit()
