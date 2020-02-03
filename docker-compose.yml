@@ -1,7 +1,7 @@
-version: '2'
+version: '3'
 services:
 
-#Selenium Node configured to run Google Chrome.
+# Selenium Node configured to run Chrome
   chrome:
     image: selenium/node-chrome:3.14.0-gallium
     volumes:
@@ -10,8 +10,22 @@ services:
       - hub
     environment:
       HUB_HOST: hub
+      - SCREEN_WIDTH=1440
+      - SCREEN_HEIGHT=900
 
-#The Hub receives a test to be executed along with information on which browser and 'platform' where the test should be run. The hub will use this information and delegate to a node that can service those needs.
+# Selenium Node configured to run Firefox
+  firefox:
+      image: selenium/node-firefox:3.14.0-gallium
+      volumes:
+        - /dev/shm:/dev/shm
+      depends_on:
+        - hub
+      environment:
+        HUB_HOST: hub
+        - SCREEN_WIDTH=1440
+        - SCREEN_HEIGHT=900
+
+# The Hub receives a test to be executed along with information on which browser and 'platform' where the test should be run. The hub will use this information and delegate to a node that can service those needs
   hub:
     image: selenium/hub:3.14.0-gallium
     ports:

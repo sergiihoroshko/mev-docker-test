@@ -5,8 +5,8 @@ chrome = webdriver.Remote(
     command_executor='http://localhost:4444/wd/hub',
     desired_capabilities=DesiredCapabilities.CHROME)
 
-chrome.get('https://dev04.quantuvis.net/#/login')
-print(chrome.title)  # Get Quantuvis title
+chrome.get('https://gizmodo.com/')
+print(chrome.title)  # Get suite title
 
 
 def tear_down(self):  # Method close all active browser window and end script work
